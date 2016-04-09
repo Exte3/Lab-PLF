@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 main(int argc, char *argv[]){
-	#Con este parametro se pueden usar acentos y la biblioteca locate
+	//Con este parametro se pueden usar acentos y la biblioteca locate
 	setlocale(LC_ALL, "spanish");
 
 	if(argc==1){
@@ -15,7 +15,17 @@ main(int argc, char *argv[]){
 		printf("Uso: fechas.exe archivo_entrada archivo_salida \n");
 	}
 	if(argc==3){
-	//correcto, ambos archivos más el nombre del programa
+		//correcto, ambos archivos más el nombre del programa
+		FILE *fp;
+		fp = fopen(argv[1],"r");
+		if(fp==NULL){
+			printf("Error: El archivo de entrada no existe. \n");
+			return 1;
+		}
+		else{
+			//En este punto se empieza a leer archivo
+			
+		}
 	}
 	if(argc>=4){
 		printf("Error: Demasiados parámetros en la línea de comandos. \n");
