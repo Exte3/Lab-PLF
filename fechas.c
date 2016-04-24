@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
+#include <string.h>
 main(int argc, char *argv[]){
 	//Con este parametro se pueden usar acentos y la biblioteca locate
 	setlocale(LC_ALL, "spanish");
@@ -24,6 +25,13 @@ main(int argc, char *argv[]){
 		}
 		else{
 			//En este punto se empieza a leer archivo
+			while(feof(fp)==0){
+				char linea[100];
+				fgets(linea,100,fp);
+				//Aquí debe haber otro if
+				
+				printf("%s", linea);
+			}
 			
 		}
 	}
