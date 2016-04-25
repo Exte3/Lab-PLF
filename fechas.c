@@ -25,13 +25,25 @@ main(int argc, char *argv[]){
 		}
 		else{
 			//En este punto se empieza a leer archivo
+			int c;
 			while(feof(fp)==0){
 				char linea[100];
 				fgets(linea,100,fp);
+				char *token;
 				//Aquí debe haber otro if
+				token = strtok(linea,"-/");
+				//printf("%s", token);
+				while(token!=NULL){
+					printf("%s\n", token);
+					token = strtok(NULL,"-/");
+					c = strcmp(linea, token);
+					if(c==0){
+						printf("todo se derrumbo /n");
+					}
+				}
 				
-				printf("%s", linea);
 			}
+			fclose ( fp );
 			
 		}
 	}
