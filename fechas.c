@@ -6,10 +6,11 @@ typedef struct dia{
 	char *num;
 	struct dia *sgt;
 }dia;
-typedef struct meses{
+typedef struct mes{
 	char *num;
-	struct meses *sgt;
-}meses;
+	struct mes *sgt;
+}mes;
+
 dia *asigmem(){
 	dia *cabeza;
 	cabeza=malloc(sizeof(dia));
@@ -24,19 +25,10 @@ dia *asigmem(){
 		auxiliar=auxiliar->sgt;
 		i++;
 	}
-	//printf("TERMINE");
-	dia* probando = cabeza->sgt;
-	int holi = 1;
-	while (probando->sgt != NULL)
-	{
-		printf("%d\n", holi);
-		probando = probando->sgt;
-		holi = holi + 1;
-		
-	}
+	//dia* probando = cabeza->sgt;
 	return cabeza;
 }
-mes *asigmem(){
+mes *asigmemm(){
 	mes *cabeza;
 	cabeza=malloc(sizeof(mes));
 	mes *sgti;
@@ -50,19 +42,10 @@ mes *asigmem(){
 		auxiliar=auxiliar->sgt;
 		i++;
 	}
-	//printf("TERMINE");
-	mes* probando = cabeza->sgt;
-	int holi = 1;
-	while (probando->sgt != NULL)
-	{
-		printf("%d\n", holi);
-		probando = probando->sgt;
-		holi = holi + 1;
-		
-	}
+	//mes* probando = cabeza->sgt;
 	return cabeza;
 }
-meses *crearmeses(meses *cabeza){
+mes *crearmeses(mes *cabeza){
 
 	cabeza->num = "1 ";
 	cabeza->sgt->num = "2 ";
@@ -148,6 +131,7 @@ meses *crearmeses(meses *cabeza){
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "07";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "08";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "09";
+	return cabeza;
 	}
 dia *creardias(dia *cabeza){
 	cabeza->num = "1";
@@ -230,9 +214,6 @@ dia *creardias(dia *cabeza){
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "28 ";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "29 ";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "30 ";
-																																						cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "09";
-																																							cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "09";
-																																								cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "09";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "31 ";
 	return cabeza;
 }
