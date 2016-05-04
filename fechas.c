@@ -6,12 +6,12 @@ typedef struct dia{
 	char *num;
 	struct dia *sgt;
 }dia;
-typedef struct mes{
+/*typedef struct mes{
 	char *num;
 	struct mes *sgt;
 }mes;
-
-dia *asigmem(){
+*/
+dia *asigmem(int a){
 	dia *cabeza;
 	cabeza=malloc(sizeof(dia));
 	dia *sgti;
@@ -19,7 +19,7 @@ dia *asigmem(){
 	cabeza->sgt=sgti;
 	dia* auxiliar = cabeza->sgt;
 	int i = 0;
-	while(i < 80){
+	while(i < a){
 	    dia* sgti = malloc(sizeof(dia));
 		auxiliar->sgt=sgti;
 		auxiliar=auxiliar->sgt;
@@ -28,7 +28,7 @@ dia *asigmem(){
 	//dia* probando = cabeza->sgt;
 	return cabeza;
 }
-mes *asigmemm(){
+/*mes *asigmemm(){
 	mes *cabeza;
 	cabeza=malloc(sizeof(mes));
 	mes *sgti;
@@ -45,7 +45,8 @@ mes *asigmemm(){
 	//mes* probando = cabeza->sgt;
 	return cabeza;
 }
-mes *crearmeses(mes *cabeza){
+*/
+dia *crearmeses(dia *cabeza){
 
 	cabeza->num = "1 ";
 	cabeza->sgt->num = "2 ";
@@ -132,7 +133,7 @@ mes *crearmeses(mes *cabeza){
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "08";
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "09";
 	return cabeza;
-	}
+}
 dia *creardias(dia *cabeza){
 	cabeza->num = "1";
 	cabeza->sgt->num = "2";
@@ -217,12 +218,25 @@ dia *creardias(dia *cabeza){
 	cabeza->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->sgt->num = "31 ";
 	return cabeza;
 }
+int esta(dia *cabeza, char *elemento){
+	dia* aux = cabeza->sgt;
+	while (aux->sgt != NULL)
+	{
+		char *cosa=aux->num;
+		int t = strcmp(elemento, cosa);
+		if(t==0){
+			return 1;
+		}
+		aux = aux->sgt;
+	}
+	return 0;
+}
 
 main(int argc, char *argv[]){
 	//Con este parametro se pueden usar acentos y la biblioteca locate
 	setlocale(LC_ALL, "spanish");
 	
-	creardias(asigmem());
+	creardias(asigmem(80));
 	//printf();
 	if(argc==1){
 		printf("Error: Faltan parámetros en la línea de comandos. \n");
@@ -244,7 +258,9 @@ main(int argc, char *argv[]){
 		}
 		else{
 			//En este punto se empieza a leer archivo
-			int c;
+			dia* listd = creardias(asigmem(80));
+			dia* listm = creardias(asigmem(84));
+			int c=0;
 			while(feof(fp)==0){
 				char linea[100];
 				fgets(linea,100,fp);
@@ -253,8 +269,19 @@ main(int argc, char *argv[]){
 				token = strtok(linea,"-/");
 				//printf("%s", token);
 				while(token!=NULL){
-					printf("%s", token);
+					//printf("%s", token);
+					if(c==0){
+						printf("%i",esta(listd, token));
+					}
+					else if(c==1){
+						printf("%i",esta(listm, token));
+					}
+					else if(c==2){
+						printf("%i",esta(listd, token));
+						c=-1;
+					}
 					token = strtok(NULL,"-/");
+					c++;
 				}
 				
 			}
